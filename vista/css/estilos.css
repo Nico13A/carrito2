@@ -37,3 +37,10 @@ body {
 .footer {
     border-top: 1px solid #43D87E;
 }
+#detalles {
+    width: 100%; 
+    margin-bottom: 10px;
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    box-sizing: border-box; 
+}

@@ -10,7 +10,7 @@
     /////////////////////////////
     
     // Ubicacion de donde se encuentra el proyecto.
-    $PROYECTO = 'TP-FINAL-DINAMICA';
+    $PROYECTO = 'carrito2';
 
     // Variable que almacena el directorio del proyecto.
     $ROOT = $_SERVER['DOCUMENT_ROOT'] . "/$PROYECTO/";
