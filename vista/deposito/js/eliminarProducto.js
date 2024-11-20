@@ -1,45 +1,40 @@
-$(document).ready(function() {
-    $('#cambiar').on('click', function() {
-        var idproducto = $('#idproducto').val();
-        var stock = $('#product-stock').val();
-        var precio = $('#product-price').val();
-        var detalle = $('#product-details').val();
-        var nombre = $('#product-nombre').val();
+$(document).ready(function () {
+    $('#Eliminar').on('click', function(){
+        var idproductoEliminar = $('#ideliminar').val();
         $.ajax({
-            url: 'accion/accionGuardarCambios.php',  
+            url: 'accion/accionEliminarProducto.php',  
             method: 'POST',
-            data: { idProducto: idproducto, stock: stock, precio: precio, detalle: detalle,nombre: nombre },
+            data: { idProducto: idproductoEliminar },
             success: function(response) {
                     let jsonResponse = JSON.parse(response);
                     if (jsonResponse.estado === 'exito') {
                         Swal.fire({
                             icon: 'success',
-                            title: '¡Producto actualizado!',
-                            text: 'El producto se actualizó correctamente.',
+                            title: '¡Producto Eliminado!',
+                            text: 'El producto se Elimino correctamente.',
                             confirmButtonText: 'Aceptar'
                         }).then(() => { 
                             setTimeout(() => { 
-                                $('#productoModal').modal('hide'); }, 1200);
+                                $('#eliminarModal').modal('hide'); }, 1200);
                             });
                     } else {
                         Swal.fire({
                             icon: 'error',
                             title: 'Error',
-                            text: jsonResponse.mensaje || 'Ocurrió un problema al actualizar el producto.',
+                            text: jsonResponse.mensaje || 'Ocurrió un problema al Eliminar el producto.',
                             confirmButtonText: 'Aceptar'
                         });
                     }
-
             },
             error: function(xhr, status, error) {
                 console.error('Error al obtener los datos del producto:', error);
                 Swal.fire({
                     icon: 'error',
                     title: 'Error',
-                    text: 'Ocurrió un problema con la solicitud.',
+                    text: 'Verifique si esta pedido antes de eliminar.',
                     confirmButtonText: 'Aceptar'
                 });
             }
-        });
-    });
-});
+        })
+    })
+})
