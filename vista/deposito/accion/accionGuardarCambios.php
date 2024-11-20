@@ -19,7 +19,7 @@ $param=[
 ];
 
 if ($controProducto->modificacion($param)) {
-    echo json_encode(['estado' => 'Se agrego actualizo correctamente']);
+    echo json_encode(['estado' => 'exito']);
 } else {
     echo json_encode(['error' => 'Producto no encontrado']);
 }
