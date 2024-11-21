@@ -9,6 +9,9 @@ $lista = $obj->buscar(null);
 
 <div class="container d-flex justify-content-between align-items-center py-4">
     <h2 class="display-5 fw-normal text-center m-0 flex-grow-1 text-center">Manejo de productos</h2>
+    <?php if ($objSession->validar()) { ?>
+        
+    <?php } ?>
 </div>
 
 <div class="container py-2">
@@ -193,7 +196,7 @@ $lista = $obj->buscar(null);
             </div>
           </div>
 
-          <!-- Detalle de los inputs -->
+          <!-- Detalles inputs -->
           <div class="col-md-8">
             <div class="mb-2">
               <label for="product-name" class="form-label">Nombre del producto:</label>
