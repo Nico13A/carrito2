@@ -10,14 +10,21 @@ $(document).ready(function () {
                     if (jsonResponse.estado === 'exito') {
                         Swal.fire({
                             icon: 'success',
-                            title: '¡Producto Eliminado!',
-                            text: 'El producto se Elimino correctamente.',
+                            title: '¡Producto fue agregado!',
+                            text: 'El producto se agregó correctamente.',
                             confirmButtonText: 'Aceptar'
                         }).then(() => { 
                             setTimeout(() => { 
-                                $('#eliminarModal').modal('hide'); }, 1200);
-                            });
-                    } else {
+                                $('#agregarModal').modal('hide'); 
+                            }, 1100);
+                        });
+                        $('#nombreProducto').val("");
+                        $('#descripcionProducto').val("");
+                        $('#precioProducto').val("");
+                        $('#cantProducto').val("");
+                        $('#imagenPrevisualizada').attr('src', '').css('display', 'none');
+                    }
+                     else {
                         Swal.fire({
                             icon: 'error',
                             title: 'Error',

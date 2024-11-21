@@ -9,12 +9,14 @@ $lista = $obj->buscar(null);
 
 <div class="container d-flex justify-content-between align-items-center py-4">
     <h2 class="display-5 fw-normal text-center m-0 flex-grow-1 text-center">Manejo de productos</h2>
-    <?php if ($objSession->validar()) { ?>
-        <form class="form-inline d-flex">
-            <input class="form-control mr-sm-2" type="search" placeholder="ingrese nombre o id del producto" aria-label="Search" size="30">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-        </form>
-    <?php } ?>
+</div>
+
+<div class="container py-2">
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+            <input type="button" class="btn btn-primary fw-bold" id="ingresarProducto" value="Ingresar un nuevo producto">
+        </div>
+    </div>
 </div>
 <div class="row float-left">
     <div class="col-md-12 float-left">
@@ -151,6 +153,87 @@ $lista = $obj->buscar(null);
 </div>
 
 
+<!-- Modal para agregar -->
+<div class="modal fade" id="agregarModal" tabindex="-1" aria-labelledby="eliminarModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-md custom-modal-width">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Agregar producto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <!-- Columna para la imagen -->
+          <div class="col-md-4">
+            <!-- Contenedor para previsualización -->
+            <div
+              id="previsualizador"
+              class="border border-secondary rounded mb-3 d-flex justify-content-center align-items-center"
+              style="width: 100%; height: 150px; background-color: #f8f9fa; overflow: hidden;">
+              <img
+                id="imagenPrevisualizada"
+                src=""
+                alt="Previsualización de la imagen"
+                style="max-height: 100%; max-width: 100%; display: none; object-fit: cover;"
+              >
+            </div>
+
+            <!-- Subir archivo -->
+            <form id="subirImagen" enctype="multipart/form-data" class="text-center"> 
+              <input
+                type="file"
+                name="imagenProducto"
+                class="form-control mb-2"
+                id="imagenProducto"
+                accept="image/*">
+              <button type="submit" id="subir" class="btn btn-primary btn-sm">Subir Imagen</button>
+            </form>
+            <div id="contenedorUrl" >
+                <input type="hidden" name="urlImagen" id="urlImagen" value="">
+            </div>
+          </div>
+
+          <!-- Detalle de los inputs -->
+          <div class="col-md-8">
+            <div class="mb-2">
+              <label for="product-name" class="form-label">Nombre del producto:</label>
+              <input type="text" class="form-control" id="nombreProducto">
+            </div>
+            <div class="mb-2">
+              <label for="product-description" class="form-label">Descripción del producto:</label>
+              <textarea class="form-control" id="descripcionProducto" rows="2"></textarea>
+            </div>
+            <div class="mb-2">
+              <label for="product-price" class="form-label">Precio:</label>
+              <input type="number" class="form-control" id="precioProducto">
+            </div>
+            <div class="mb-2">
+              <label for="product-stock" class="form-label">Cantidad disponible:</label>
+              <input type="number" class="form-control" id="cantProducto">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" id="agregarProducto">Agregar Producto</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<script src="./js/ingresarProducto.js"></script>
+
+<script src="./js/subir.js"></script>
+
+<script src="./js/mostrarIngresarProducto.js"></script>
 
 <script src="./js/eliminarProducto.js"></script>
 
