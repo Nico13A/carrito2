@@ -1,11 +1,13 @@
 $(document).ready(function () {
     $('#Eliminar').on('click', function(){
         var idproductoEliminar = $('#ideliminar').val();
+        
         $.ajax({
             url: 'accion/accionEliminarProducto.php',  
             method: 'POST',
             data: { idProducto: idproductoEliminar },
             success: function(response) {
+                console.log(response);
                     let jsonResponse = JSON.parse(response);
                     if (jsonResponse.estado === 'exito') {
                         Swal.fire({
@@ -27,6 +29,7 @@ $(document).ready(function () {
                     }
             },
             error: function(xhr, status, error) {
+                console.log(response);
                 console.error('Error al obtener los datos del producto:', error);
                 Swal.fire({
                     icon: 'error',

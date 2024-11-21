@@ -157,7 +157,7 @@ $lista = $obj->buscar(null);
 
 
 <!-- Modal para agregar -->
-<div class="modal fade" id="agregarModal" tabindex="-1" aria-labelledby="eliminarModalLabel" aria-hidden="true">
+<div class="modal fade" id="agregarModal" tabindex="-1" aria-labelledby="agregarModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-md custom-modal-width">
     <div class="modal-content">
       <div class="modal-header">
